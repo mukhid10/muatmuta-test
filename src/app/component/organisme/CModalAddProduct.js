@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { CInput } from '../atoms/CInput';
@@ -8,7 +8,7 @@ import { UseAddProduct, UseEditProduct } from '@/app/zustand/store';
 
 function CmodalAddProduct({show, setShow, label}) {
     const {addProduct} = UseAddProduct()
-    const {editProduct} = UseEditProduct()
+    const {dataEditProduct, editProduct} = UseEditProduct()
 
     const [data, setData] = useState({
         name: '',
@@ -18,6 +18,10 @@ function CmodalAddProduct({show, setShow, label}) {
         desc: ''
     });
 
+    useEffect(()=>{
+        handleInitValue();
+    },[dataEditProduct])
+
     const handleData = ()=>{
         if (label == "Edit Product") {
             editProduct(data);
@@ -25,6 +29,19 @@ function CmodalAddProduct({show, setShow, label}) {
         } else {            
             addProduct(data);
             setShow(false);
+        }
+    }
+
+    const handleInitValue = ()=>{
+        if (label == "Edit Product") {            
+            setData({
+                ...data,
+                image: dataEditProduct?.image,
+                name: dataEditProduct?.name,
+                stock: dataEditProduct?.stock,
+                desc: dataEditProduct?.desc,
+                price: dataEditProduct?.price
+            })
         }
     }
     
@@ -37,7 +54,7 @@ function CmodalAddProduct({show, setShow, label}) {
             className='mt-3'
         >
             <Modal.Header closeButton>
-            <Modal.Title>{label}</Modal.Title>
+            <Modal.Title className='text-dark text-gray-900'>{label}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <div className='m-2'>
@@ -88,7 +105,7 @@ function CmodalAddProduct({show, setShow, label}) {
             <Button variant="secondary" onClick={()=>setShow(false)}>
                 Close
             </Button>
-                {data.name && data?.image && data?.stock && data.price && data.desc ?
+                {data.name && data?.image && data?.stock > 0 && data.price && data.desc ?
                 <Button variant="dark"
                 onClick={()=>handleData()}
                 >Submit</Button> :

@@ -52,17 +52,18 @@ export default function Home() {
     }
   }
 
-  const handleNewData = ()=>{
-    if (dataAddProduct.name) {      
-      setData(prev => [...prev,
+  const handleNewData = () => {
+    if (dataAddProduct.name) {
+      setData(prev => [
         {
           label: dataAddProduct.name,
           image: dataAddProduct.image,
           stock: dataAddProduct?.stock
-        }
-      ])
+        },
+        ...prev
+      ]);
     }
-  }
+  };
 
   const handleDetailProduct = (item)=>{
     addData(item)
@@ -72,9 +73,13 @@ export default function Home() {
   const handleSearch = ()=>{
     let arr = [];
 
-    arr.push(data.find((a)=> a.label == search))
+    if (data.find((a)=> a.label == search)) {   
+      arr.push(data.find((a)=> a.label == search))
+    }else{
+      handleGetData();
+    }
 
-    setData(arr)
+    setData(arr);
     
   }
 
@@ -82,7 +87,7 @@ export default function Home() {
   return (
     <div className="w-full lg:px-16 md:px-16 sm:px-0">
       <div className="flex justify-between items-center mt-5 mb-3">
-        <h1 className="text-3xl font-semibold italic">List Produck</h1>
+        <h1 className="text-3xl font-semibold italic text-gray-900">List Produck</h1>
 
         <CInputSearch value={search} setValue={(e)=>setSearch(e.target.value)} action={handleSearch}/>
       </div>

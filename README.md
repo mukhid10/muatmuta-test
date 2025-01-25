@@ -1,35 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# VCA Game Project
 
-## Getting Started
+[Previous sections remain unchanged...]
 
-First, run the development server:
+## Teknologi yang Digunakan
+- [Next.js](https://nextjs.org/) - React framework untuk produksi
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utility-first
+- [Ract Bootstrap](https://react-bootstrap.netlify.app/) - Sistem desain dan library komponen UI
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Prasyarat
+Sebelum Anda memulai, pastikan Anda telah menginstal:
+- Node.js (v18.20.6)
+- npm
+- next 15.0.3
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Instalasi
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Clone repositori
+   ```bash
+   git clone https://github.com/mukhid10/muatmuta-test
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Masuk ke direktori proyek
+   ```bash
+   cd nama-proyek
+   ```
 
-## tessst
+3. Instal dependensi
+   ```bash
+   npm install 
+   # atau
+   npm install --force
+   ```
 
-github repository && Vercel
+4. Jalankan server pengembangan
+   ```bash
+   npm run dev
+   ```
 
-- [gtihub repository](https://github.com/mukhid10/muatmuta-test)I.
-- [vercel](https://muatmuta-test.vercel.app/)I.
+5. Buka [http://localhost:3000](http://localhost:3000) dengan browser Anda untuk melihat hasilnya.
+
+## Panduan Penggunaan Aplikasi
+
+### 1. Halaman Utama (Beranda)
+- Akses aplikasi melalui [Muatmuat](https://muatmuta-test.vercel.app/)
+- Anda bisa melihat list product
+-anda bisa memilih menambah product (fiture add)
+-anda bisa mencari product (fiture search)
+
+### 2. Halaman Detail Product
+- anda menggunjung halman detail dengan menkan read more di halman list product
+- anda bisa melihat halman detail product
+- anda bisa edit product
+- anda bisa hapus product
 
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Previous sections remain unchanged...]

@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 
 function Page() {
   const {data} = UseAddData();
-  const {dataEditProduct} = UseEditProduct();
+  const {dataEditProduct, editProduct} = UseEditProduct();
 
   const [dataDetail, setDataDetail] = useState({});
 
@@ -25,15 +25,25 @@ function Page() {
       stock: data?.stock,
       desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     })
+    editProduct({
+      image: data?.image,
+      name: data?.label,
+      stock: data?.stock,
+      price: 1000,
+      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    })
   };  
 
   const handleNewData = ()=>{
-    setDataDetail({
-      image: dataEditProduct?.image,
-      label: dataEditProduct?.name,
-      stock: dataEditProduct?.stock,
-      desc: dataEditProduct?.desc
-    })
+    if (dataEditProduct?.name) {      
+      setDataDetail({
+        image: dataEditProduct?.image,
+        label: dataEditProduct?.name,
+        stock: dataEditProduct?.stock,
+        desc: dataEditProduct?.desc,
+        price: dataEditProduct?.price
+      })
+    }
   }
 
   if (!dataDetail) {

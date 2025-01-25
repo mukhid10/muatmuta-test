@@ -35,6 +35,14 @@ function Page() {
       desc: dataEditProduct?.desc
     })
   }
+
+  if (!dataDetail) {
+    return(
+      <div className='flex justify-center items-center w-full h-full mt-20'>
+        <h1 className='text-center'>Data telah di hapus</h1>
+      </div>
+    )
+  }
   
   return (
     <div className='lg:pt-20 sm:pt-0 lg:px-52 sm:px-1'>
@@ -47,8 +55,13 @@ function Page() {
           />
         </div>
         <div className="p-6">
-          <div className="mb-4 rounded-full font-semibold bg-slate-800 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-20 text-center">
-            {dataDetail?.label}</div>
+          <div className='flex justify-between w-full items-center'>
+            <div className="mb-4 rounded-full font-semibold bg-slate-800 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-20 text-center">
+              {dataDetail?.label}</div>
+              <div className='italic cursor-pointer mb-4 text-gray-500'
+              onClick={()=>setDataDetail(false)}
+              >Remove</div>
+          </div>
           <h4 className="mb-2 text-slate-800 text-xl font-semibold">
             Description about {dataDetail?.label}
           </h4>

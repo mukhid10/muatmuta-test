@@ -13,6 +13,7 @@ export default function Home() {
   const {getData} = useGetData();
 
   const [data, setData] = useState([]);
+  const [search, setSearch] = useState('')
 
   useEffect(()=>{
     handleGetData();
@@ -68,13 +69,22 @@ export default function Home() {
     route.push(`/detailProduct/${item?.label}`)
   }
 
+  const handleSearch = ()=>{
+    let arr = [];
+
+    arr.push(data.find((a)=> a.label == search))
+
+    setData(arr)
+    
+  }
+
   
   return (
     <div className="w-full lg:px-16 md:px-16 sm:px-0">
       <div className="flex justify-between items-center mt-5 mb-3">
         <h1 className="text-3xl font-semibold italic">List Produck</h1>
 
-        <CInputSearch />
+        <CInputSearch value={search} setValue={(e)=>setSearch(e.target.value)} action={handleSearch}/>
       </div>
       <div className="grid lg:grid-cols-6 grid-cols-2 gap-4 w-fit h-fit">
         {

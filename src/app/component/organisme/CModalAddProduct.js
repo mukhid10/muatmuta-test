@@ -58,39 +58,39 @@ function CmodalAddProduct({show, setShow, label}) {
             </Modal.Header>
             <Modal.Body>
                 <div className='m-2'>
-                    <label>Name <span className='text-red-600'>*</span></label>
+                    <label className='text-gray-900'>Name <span className='text-red-600'>*</span></label>
                     <CInput value={data?.name} setValue={(e)=>setData({
                         ...data,
                         name: e.target.value
                     })}/>
                 </div>
                 <div className='m-2'>
-                    <label>Image <span className='text-red-600'>*</span></label>
+                    <label className='text-gray-900'>Image <span className='text-red-600'>*</span></label>
                     <CInput  value={data?.image} setValue={(e)=>setData({
                         ...data,
                         image: e.target.value
                     })}/>
-                </div>
+                </div >
                 <div className='m-2'>
-                    <label>Stock <span className='text-red-600'>*</span></label>
+                    <label className='text-gray-900'>Stock <span className='text-red-600'>*</span></label>
                     <CInput  value={data?.stock} setValue={(e)=>setData({
                         ...data,
                         stock: e.target.value
                     })}/>
                 </div>
                 <div className='m-2'>
-                    <label>Price <span className='text-red-600'>*</span></label>
+                    <label className='text-gray-900'>Price <span className='text-red-600'>*</span></label>
                     <CInput  value={data?.price} setValue={(e)=>setData({
                         ...data,
                         price: e.target.value
                     })}/>
                 </div>
                 <div className='m-2'>
-                    <label>Description <span className='text-red-600'>*</span></label>
+                    <label className='text-gray-900'>Description <span className='text-red-600'>*</span></label>
                     <div className="w-full">
                         <div className="relative w-full">
                             <textarea
-                            className="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
+                            className="peer text-gray-900 h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
                             placeholder="Description"
                             value={data?.desc} onChange={(e)=>setData({
                                 ...data,

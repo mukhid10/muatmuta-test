@@ -23,6 +23,10 @@ export default function Home() {
     handleNewData()
   },[dataAddProduct])
 
+  useEffect(()=>{
+    handleSearch()
+  },[search])
+
 
   const handleGetData = async()=>{
     let a = await getData();
@@ -89,7 +93,7 @@ export default function Home() {
       <div className="flex justify-between items-center mt-5 mb-3">
         <h1 className="text-3xl font-semibold italic text-gray-900">List Produck</h1>
 
-        <CInputSearch value={search} setValue={(e)=>setSearch(e.target.value)} action={handleSearch}/>
+        <CInputSearch value={search} setValue={(e)=>setSearch(e.target.value)} action={()=>{}}/>
       </div>
       <div className="grid lg:grid-cols-6 grid-cols-2 gap-4 w-fit h-fit">
         {
